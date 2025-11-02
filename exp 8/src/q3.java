@@ -1,42 +1,24 @@
 import java.util.Scanner;
 
-// Thread 1: Prints multiplication table
-class TableThread extends Thread {
+class TableAndDivisorThread extends Thread {
     int num;
 
-    TableThread(int num) {
+    TableAndDivisorThread(int num) {
         this.num = num;
     }
 
     public void run() {
         for (int i = 1; i <= 10; i++) {
+            // Print divisor
+            System.out.println("Divisor: " + i);
+
+            // Print multiplication table
             System.out.println(num + " x " + i + " = " + (num * i));
+
             try {
-                Thread.sleep(2000); // 2-second delay
+                Thread.sleep(2000); // 2 seconds delay
             } catch (InterruptedException e) {
                 System.out.println(e);
-            }
-        }
-    }
-}
-
-// Thread 2: Prints divisors
-class DivisorThread extends Thread {
-    int num;
-
-    DivisorThread(int num) {
-        this.num = num;
-    }
-
-    public void run() {
-        for (int i = 1; i <= num; i++) {
-            if (num % i == 0) {
-                System.out.println("Divisor: " + i);
-                try {
-                    Thread.sleep(2000); // 2-second delay
-                } catch (InterruptedException e) {
-                    System.out.println(e);
-                }
             }
         }
     }
@@ -48,11 +30,8 @@ public class q3 {
         System.out.print("Enter a number: ");
         int num = sc.nextInt();
 
-        TableThread t1 = new TableThread(num);
-        DivisorThread t2 = new DivisorThread(num);
-
-        t1.start();
-        t2.start();
+        TableAndDivisorThread t1 = new TableAndDivisorThread(num);
+        t1.start(); // Start the single combined thread
 
         sc.close();
     }
