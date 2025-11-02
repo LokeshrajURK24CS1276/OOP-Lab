@@ -1,0 +1,10 @@
+=== Report using Character Stream ===
+Total Characters: 464
+Total Words     : 73
+Total Lines     : 4
+------------------------------------
+=== Report using Byte Stream ===
+Total Characters: 470
+Total Words     : 73
+Total Lines     : 4
+------------------------------------
